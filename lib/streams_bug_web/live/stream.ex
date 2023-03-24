@@ -47,7 +47,7 @@ defmodule StreamsBugWeb.Stream do
 
   def handle_event("expand", _, socket) do
     {:noreply,
-      Enum.reduce(@default |> Enum.with_index(), socket, fn {row, index}, sock ->
+      Enum.reduce(@default |> Enum.with_index(1), socket, fn {row, index}, sock ->
         stream_insert(sock, :rows, row, at: index)
       end)
       |> assign(:event, "collapse")
