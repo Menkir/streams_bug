@@ -18,7 +18,7 @@ defmodule StreamsBugWeb.Stream do
 
   def render(assigns) do
     ~H"""
-    <div id="foo" phx-update="replace" class="absolute inset-0 w-screen h-screen flex flex-col justify-center items-center">
+    <div id="foo" phx-update="stream" class="absolute inset-0 w-screen h-screen flex flex-col justify-center items-center">
       <button id="my-buttton" phx-click={@event} class="order-0 bg-gray-500 text-white rounded-md p-3"> <%= @event %></button>
       <div class={"order-#{index}"} :for={{{dom_id, row}, index} <- Enum.with_index(@streams.rows, 1)} id={dom_id}> <%= row.message%> </div>
     </div>
